@@ -29,7 +29,13 @@ Route::middleware('adminauth:admin')->group(function(){ //middleware name admina
      Route::get('', 'homecontroller@index')->name('admin.home'); //awl saf7a 5als
      Route::get('/logout', 'authcontroller@logout')->name('admin.logout'); //logout
     
-    
+      //cat
+     Route::get('/cats', 'CatController@index')->name('admin.cat.index'); 
+     Route::get('/cats/create', 'CatController@create')->name('admin.cat.create');
+     Route::post('/cats/store', 'CatController@store')->name('admin.cat.store'); 
+     Route::get('/cats/edit/{id}', 'CatController@edit')->name('admin.cat.edit'); 
+     Route::get('/cats/update', 'CatController@update')->name('admin.cat.update');  
+     Route::get('/cats/delete/{id}', 'CatController@delete')->name('admin.cat.delete'); 
     });
 
     
