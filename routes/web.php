@@ -36,16 +36,24 @@ Route::middleware('adminauth:admin')->group(function(){ //middleware name admina
      Route::get('/cats/edit/{id}', 'CatController@edit')->name('admin.cat.edit'); 
      Route::get('/cats/update', 'CatController@update')->name('admin.cat.update');  
      Route::get('/cats/delete/{id}', 'CatController@delete')->name('admin.cat.delete'); 
-	 //________________________________________________________________________________________________________________
-//courses
-Route::get('/courses', 'courseController@index')->name('admin.course.index'); 
-Route::get('/courses/create', 'courseController@create')->name('admin.course.create');   
-Route::post('/courses/store', 'courseController@store')->name('admin.course.store');   
-Route::get('/courses/edit/{id}', 'courseController@edit')->name('admin.course.edit'); 
-Route::get('/courses/update', 'courseController@update')->name('admin.course.update');   
-Route::get('/courses/delete/{id}', 'courseController@delete')->name('admin.course.delete');
-Route::get('/courses/{id}', 'courseController@seemore')->name('admin.course.seemore');  
-//________________________________________________________________________________________________________________
+     //________________________________________________________________________________________________________________
+     //courses
+     Route::get('/courses', 'courseController@index')->name('admin.course.index'); 
+     Route::get('/courses/create', 'courseController@create')->name('admin.course.create');   
+     Route::post('/courses/store', 'courseController@store')->name('admin.course.store');   
+     Route::get('/courses/edit/{id}', 'courseController@edit')->name('admin.course.edit'); 
+     Route::get('/courses/update', 'courseController@update')->name('admin.course.update');   
+     Route::get('/courses/delete/{id}', 'courseController@delete')->name('admin.course.delete');
+     Route::get('/courses/{id}', 'courseController@seemore')->name('admin.course.seemore');  
+     //________________________________________________________________________________________________________________
+     //trainers
+     Route::get('/trainers', 'trainerController@index')->name('admin.trainer.index'); 
+     Route::get('/trainers/create', 'trainerController@create')->name('admin.trainer.create');  
+     Route::post('/trainers/store', 'trainerController@store')->name('admin.trainer.store'); 
+     Route::get('/trainers/edit/{id}', 'trainerController@edit')->name('admin.trainer.edit');
+     Route::get('/trainers/update', 'trainerController@update')->name('admin.trainer.update');   
+     Route::get('/trainers/delete/{id}', 'trainerController@delete')->name('admin.trainer.delete');
+
     });
 
     
