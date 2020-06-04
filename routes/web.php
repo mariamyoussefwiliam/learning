@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+});*/
+route::namespace('front')->group(function(){
 
+    Route::get('/', 'homepagecontroller@index')->name('front.homepage'); 
+   
+});
 //----------------------------------------------------------------------------
 route::namespace('admin')->prefix('/dashboard')->group(function(){
 
