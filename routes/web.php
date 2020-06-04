@@ -21,6 +21,7 @@ route::namespace('front')->group(function(){
     Route::get('/', 'homepagecontroller@index')->name('front.homepage'); 
     Route::get('/cat/{id}', 'coursecontroller@cat')->name('front.cat'); 
     Route::get('/cat/{id}/course/{c_id}', 'coursecontroller@show')->name('front.show'); 
+    Route::get('/contact', 'contactcontroller@index')->name('front.contact');
    
 });
 //----------------------------------------------------------------------------
