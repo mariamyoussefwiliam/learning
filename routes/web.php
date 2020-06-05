@@ -64,7 +64,12 @@ Route::middleware('adminauth:admin')->group(function(){ //middleware name admina
      Route::get('/trainers/edit/{id}', 'trainerController@edit')->name('admin.trainer.edit');
      Route::get('/trainers/update', 'trainerController@update')->name('admin.trainer.update');   
      Route::get('/trainers/delete/{id}', 'trainerController@delete')->name('admin.trainer.delete');
-
+//________________________________________________________________________________________________________________
+//student
+Route::get('/students', 'studentController@index')->name('admin.student.index'); 
+Route::get('/students/create', 'studentController@create')->name('admin.student.create'); 
+Route::post('/students/store', 'studentController@store')->name('admin.student.store');   
+ 
     });
 
     
