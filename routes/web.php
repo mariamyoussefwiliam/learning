@@ -35,10 +35,10 @@ route::namespace('admin')->prefix('/dashboard')->group(function(){
     Route::post('/dologin', 'authcontroller@dologin')->name('admin.dologin');
    
 
-Route::middleware('adminauth:admin')->group(function(){ //middleware name adminauth 3la guard el admin 
+Route::middleware('adminauth:admin')->group(function(){ 
 
-     Route::get('', 'homecontroller@index')->name('admin.home'); //awl saf7a 5als
-     Route::get('/logout', 'authcontroller@logout')->name('admin.logout'); //logout
+     Route::get('', 'homecontroller@index')->name('admin.home'); 
+     Route::get('/logout', 'authcontroller@logout')->name('admin.logout'); 
     
       //cat
      Route::get('/cats', 'CatController@index')->name('admin.cat.index'); 
@@ -69,8 +69,10 @@ Route::middleware('adminauth:admin')->group(function(){ //middleware name admina
 Route::get('/students', 'studentController@index')->name('admin.student.index'); 
 Route::get('/students/create', 'studentController@create')->name('admin.student.create'); 
 Route::post('/students/store', 'studentController@store')->name('admin.student.store');   
- 
-    });
+Route::get('/students/show-courses/{id}', 'studentController@showCourses')->name('admin.student.showCourses'); 
+Route::get('/students/{id}/courses/{c_id}/approve', 'studentController@approveCourse')->name('admin.student.approveCourse'); 
+Route::get('/students/{id}/courses/{c_id}/reject', 'studentController@rejectCourse')->name('admin.student.rejectCourse'); 
+ });
 
     
 });
