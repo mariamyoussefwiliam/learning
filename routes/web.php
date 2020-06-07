@@ -68,7 +68,10 @@ Route::middleware('adminauth:admin')->group(function(){
 //student
 Route::get('/students', 'studentController@index')->name('admin.student.index'); 
 Route::get('/students/create', 'studentController@create')->name('admin.student.create'); 
-Route::post('/students/store', 'studentController@store')->name('admin.student.store');   
+Route::post('/students/store', 'studentController@store')->name('admin.student.store'); 
+Route::get('/students/edit/{id}', 'studentController@edit')->name('admin.student.edit'); 
+Route::get('/students/update', 'studentController@update')->name('admin.student.update');   
+Route::get('/students/delete/{id}', 'studentController@delete')->name('admin.student.delete');  
 Route::get('/students/show-courses/{id}', 'studentController@showCourses')->name('admin.student.showCourses'); 
 Route::get('/students/{id}/courses/{c_id}/approve', 'studentController@approveCourse')->name('admin.student.approveCourse'); 
 Route::get('/students/{id}/courses/{c_id}/reject', 'studentController@rejectCourse')->name('admin.student.rejectCourse'); 
