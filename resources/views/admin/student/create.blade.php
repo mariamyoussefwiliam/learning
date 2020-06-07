@@ -36,4 +36,4 @@
 
 
 
-@endsections
+@endsection
