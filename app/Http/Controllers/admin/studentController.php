@@ -58,7 +58,36 @@ public function delete($id)
     return redirect(route('admin.student.index'));
 }
 
+public function showCourses($id)
+{
 
+  $data['courses']=Student::findOrfail($id)->courses;
+  $data['student_id']=$id;
+  //$data['courses']=Course::select('id','name')->where('id',$id)->get();
+  return view('admin.student.showCourses')->with($data);
+}
+public function approveCourse($id,$c_id)
+{
+  
+    DB::table('course_student')->where('student_id',$id)->where('course_id',$c_id)->update(
+        [
+            'status'=>'approve'
+        ]
+        );
+  
+  return back();
+}
+public function rejectCourse($id,$c_id)
+{
+  
+    DB::table('course_student')->where('student_id',$id)->where('course_id',$c_id)->update(
+        [
+            'status'=>'reject'
+        ]
+        );
+  
+  return back();
+}
 
 
 }
