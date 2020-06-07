@@ -33,6 +33,30 @@ $data = $request->validate([
 Student::create($data);
 return redirect(route('admin.student.index'));
 }
+public function edit($id)
+{
+    $data['student']=Student::findOrfail($id);
+    return view('admin.student.edit')->with($data);
+}
+public function update(Request $request)
+{
+    
+    $data = $request->validate([
+      
+       
+        'name'=>'nullable|string|max:191',
+        'email'=>'required|email|max:191',
+        'spec'=>'nullable|string|max:191',
+        ]);
+        Student::findorfail($request->id)->update($data);
+    return redirect(route('admin.student.index'));
+}
+public function delete($id)
+{
+ 
+        Student::findorfail($id)->delete();
+    return redirect(route('admin.student.index'));
+}
 
 
 
